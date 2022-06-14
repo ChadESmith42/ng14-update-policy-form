@@ -1,0 +1,137 @@
+<form [formGroup]="updateForm">
+  <div class="col-12 px-xl-6 px-4 pb-5 minh-350 d-flex flex-column">
+    <div class="mb-4">
+      <div class="checkbox-input teal-box">
+        <label class="containerb">
+          <input
+            type="checkbox"
+            formControlName="globalUninsured"
+            (change)="setPoliciesAsInactive()"
+          />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="d-flex justify-content-start align-items-center pl-lg-2 pl-3">
+        <label
+          class="form-check-label mb-1 font-weight-normal"
+          for="exampleCheck1"
+          >Select if you no longer have any active insurance or are uninsured
+        </label>
+      </div>
+    </div>
+  </div>
+  <section formArrayName="plans">
+    <article
+      class="policy-info"
+      *ngFor="let plan of plans.controls; index as i"
+      [formGroupName]="i"
+    >
+      <div class="remove-button-container" *ngIf="i > minDelete">
+        <button
+          class="remove-button"
+          type="button"
+          (click)="removeInsurance(i)"
+        >
+          Remove Policy
+        </button>
+      </div>
+      <div class="checkbox-input teal-box">
+        <label class="containerb">
+          <input
+            id="isInactive{{ i }}"
+            type="checkbox"
+            formControlName="isInactive"
+            (change)="setGlobalUninsured()"
+          />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="d-flex justify-content-start align-items-center pl-lg-2 pl-3">
+        <label
+          class="form-check-label mb-1 font-weight-normal"
+          for="isInactive{{ i }}"
+          >Select if this insurance is no longer active
+        </label>
+      </div>
+      <div class="checkbox-input teal-box">
+        <label class="containerb">
+          <input
+            id="isPrimary{{ i }}"
+            type="checkbox"
+            formControlName="isPrimary"
+          />
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="d-flex justify-content-start align-items-center pl-lg-2 pl-3">
+        <label
+          class="form-check-label mb-1 font-weight-normal"
+          for="isInactive{{ i }}"
+          >Select if this insurance your primary insurance
+        </label>
+        <p class="error" *ngIf="updateForm.hasError('multiplePrimary')">
+          Only one policy can be primary.
+        </p>
+        <p class="error" *ngIf="updateForm.hasError('primaryRequired')">
+          A primary policy is required.
+        </p>
+      </div>
+      <div>
+        <label>
+          Payer:
+          <select formControlName="payer">
+            <option>Select one</option>
+            <option *ngFor="let name of payerNames" [value]="name">
+              {{ name }}
+            </option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label for="policyId{{ i }}">
+          Policy ID:
+          <input
+            id="policyId{{ i }}"
+            type="text"
+            formControlName="policyId"
+            required
+          />
+        </label>
+      </div>
+      <div>
+        <label for="groupNo{{ i }}">
+          Group Number:
+          <input
+            id="groupNo{{ i }}"
+            type="text"
+            formControlName="groupNo"
+            required
+          />
+        </label>
+      </div>
+      <div>
+        <label for="pcn{{ i }}">
+          PCN:
+          <input id="pcn{{ i }}" type="text" formControlName="pcn" required />
+        </label>
+      </div>
+      <div>
+        <label for="bin{{ i }}">
+          BIN:
+          <input id="bin{{ i }}" type="text" formControlName="bin" required />
+        </label>
+      </div>
+    </article>
+    <article class="add-button-container">
+      <button class="add-button" type="button" (click)="addInsurance()">
+        Add Insurance &plus;
+      </button>
+    </article>
+    <article class="action-button-container">
+      <button class="cancel-button" type="button">Cancel</button>
+      <button class="submit-button" type="button" (click)="updatePolicies()">
+        Update
+      </button>
+    </article>
+  </section>
+</form>

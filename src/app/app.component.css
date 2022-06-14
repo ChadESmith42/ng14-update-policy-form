@@ -1,0 +1,52 @@
+.policy-info {
+  padding: 24px 18px 32px 16px;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 12px;
+}
+
+.add-button-container,
+.action-button-container {
+  margin: 12px;
+  width: 100%;
+}
+
+button {
+  border: none;
+  padding: 10px 8px 12px 8px;
+  border-radius: 8px;
+}
+
+.add-button {
+  background-color: red;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: black;
+}
+
+.cancel-button {
+  background-color: lightgray;
+  color: red;
+  margin: 0 24px 0 0;
+  padding: 10px 24px 12px 24px;
+}
+
+.submit-button {
+  background-color: green;
+  color: white;
+  padding: 10px 24px 12px 24px;
+}
+
+.remove-button {
+  float: right;
+  color: red;
+}
+
+.error {
+  font-weight: 800;
+  color: red;
+  border-left: 4px solid red;
+  padding-left: 8px;
+}
