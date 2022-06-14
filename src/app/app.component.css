@@ -42,6 +42,14 @@ button {
 .remove-button {
   float: right;
   color: red;
+  background-color: white;
+}
+
+.remove-button:hover {
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 18px;
+  cursor: pointer;
 }
 
 .error {
