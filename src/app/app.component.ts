@@ -89,9 +89,12 @@ export class AppComponent implements OnInit {
    * the FormArray.
    */
   setGlobalUninsured(): void {
-    const hasInsurance: boolean = this.plans.controls.some(
-      (control) => control.get('isInactive').value === false
-    );
-    this.updateForm.get('globalUninsured').setValue(!hasInsurance);
+    this.updateForm
+      .get('globalUninsured')
+      .setValue(
+        this.plans.controls.every(
+          (control) => control.get('isInactive').value === true
+        )
+      );
   }
 }
