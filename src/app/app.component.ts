@@ -70,8 +70,12 @@ export class AppComponent implements OnInit {
   }
 
   updatePolicies(): void {
+    this.updateForm.markAllAsTouched();
+    if (this.updateForm.invalid) {
+      return;
+    }
     this.existingPolicies = [...this.plans.value];
-    console.log(this.existingPolicies);
+    console.log({ ...this.existingPolicies });
   }
 
   setPoliciesAsInactive(): void {
