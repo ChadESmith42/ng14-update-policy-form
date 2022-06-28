@@ -11,7 +11,7 @@
       </label>
     </div>
     <label class="form-check-label" for="exampleCheck1"
-      >Select if you no longer have any active insurance or are uninsured
+      >I have no insurance.
     </label>
   </div>
   <section formArrayName="plans">
@@ -42,7 +42,7 @@
           </label>
         </div>
         <label class="form-check-label" for="isInactive{{ i }}"
-          >Select if this insurance is no longer active
+          >This policy is inactive.
         </label>
       </div>
       <div class="checkbox-label-container">
@@ -57,7 +57,7 @@
           </label>
         </div>
         <label class="form-check-label" for="isPrimary{{ i }}"
-          >Select if this insurance your primary insurance
+          >This is the primary policy.
         </label>
         <div class="checkbox-errors">
           <p
@@ -76,7 +76,7 @@
       </div>
       <div class="label-control-container">
         <div class="column-alignment">
-          <label class="input-label" for="payer{{ i }}"> Payer: </label>
+          <label class="input-label" for="payer{{ i }}"> Insurance Company: </label>
           <select class="input-control" formControlName="payer">
             <option>Select one</option>
             <option
