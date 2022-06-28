@@ -15,33 +15,34 @@ button {
   border: none;
   padding: 10px 8px 12px 8px;
   border-radius: 8px;
+  font-weight: bold;
 }
 
 .add-button {
-  background-color: red;
+  background-color: #c91a1b;
   color: white;
 }
 
 .add-button:hover {
-  background-color: black;
+  background-color: #1a242d;
 }
 
 .cancel-button {
-  background-color: lightgray;
-  color: red;
+  background-color: #fccc4e;
+  color: #1a242d;
   margin: 0 24px 0 0;
   padding: 10px 24px 12px 24px;
 }
 
 .submit-button {
-  background-color: green;
+  background-color: #27a2aa;
   color: white;
   padding: 10px 24px 12px 24px;
 }
 
 .remove-button {
   float: right;
-  color: red;
+  color: #c91a1b;
   background-color: white;
 }
 
@@ -54,7 +55,51 @@ button {
 
 .error {
   font-weight: 800;
-  color: red;
-  border-left: 4px solid red;
+  color: #c91a1b;
+  border-left: 4px solid #c91a1b;
   padding-left: 8px;
+}
+
+.label-control-container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100vw;
+}
+
+.input-label {
+  flex: 0 1 auto;
+  margin: 0 0 0.5rem 0;
+  font-variant: small-caps;
+}
+
+.input-control {
+  flex: 0 1 auto;
+  border: none;
+  border-bottom: 2px solid #444;
+  width: 40%;
+  margin: 0 0 1.5rem 0;
+}
+
+.checkbox-label-container {
+  display: grid;
+  grid-template-columns: [checkboxStart] 3% [checkboxEnd labelStart] 50% [labelEnd errorStart] auto [errorEnd];
+}
+
+.checkbox-input {
+  margin: 0.5rem 1rem 0.75rem 1rem;
+  grid-column: checkboxStart / checkboxEnd;
+}
+
+.form-check-label {
+  grid-column: labelStart / labelEnd;
+  margin: 0.5rem 1rem 0.75rem 1rem;
+}
+
+.checkbox-errors {
+  grid-column: errorStart / errorEnd;
+}
+
+.checkbox-error {
+  margin: 0.5rem 1rem 0.75rem 1rem;
+  color: #c91a1b;
 }
