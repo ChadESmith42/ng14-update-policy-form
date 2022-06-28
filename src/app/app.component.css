@@ -3,6 +3,7 @@
   border: 2px solid black;
   border-radius: 8px;
   margin: 12px;
+  width: 70%;
 }
 
 .add-button-container,
@@ -56,14 +57,23 @@ button {
 .error {
   font-weight: 800;
   color: #c91a1b;
-  border-left: 4px solid #c91a1b;
-  padding-left: 8px;
 }
 
 .label-control-container {
   display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+.column-alignment {
+  display: flex;
   flex-flow: column nowrap;
-  width: 100vw;
+  width: 50%;
+}
+
+.error-container {
+  width: 30%;
+  margin-left: 1rem;
 }
 
 .input-label {
@@ -76,13 +86,12 @@ button {
   flex: 0 1 auto;
   border: none;
   border-bottom: 2px solid #444;
-  width: 40%;
   margin: 0 0 1.5rem 0;
 }
 
 .checkbox-label-container {
   display: grid;
-  grid-template-columns: [checkboxStart] 3% [checkboxEnd labelStart] 50% [labelEnd errorStart] auto [errorEnd];
+  grid-template-columns: [checkboxStart] 5% [checkboxEnd labelStart] 50% [labelEnd errorStart] auto [errorEnd];
 }
 
 .checkbox-input {

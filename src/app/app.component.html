@@ -75,57 +75,120 @@
         </div>
       </div>
       <div class="label-control-container">
-        <label class="input-label" for="payer{{ i }}"> Payer: </label>
-        <select class="input-control" formControlName="payer">
-          <option>Select one</option>
-          <option
-            class="select-option"
-            *ngFor="let name of payerNames"
-            [value]="name"
+        <div class="column-alignment">
+          <label class="input-label" for="payer{{ i }}"> Payer: </label>
+          <select class="input-control" formControlName="payer">
+            <option>Select one</option>
+            <option
+              class="select-option"
+              *ngFor="let name of payerNames"
+              [value]="name"
+            >
+              {{ name }}
+            </option>
+          </select>
+        </div>
+        <div class="column-alignment error-container">
+          <p
+            class="error"
+            *ngIf="
+              plan.get('payer').hasError('required') &&
+              plan.get('payer').touched
+            "
           >
-            {{ name }}
-          </option>
-        </select>
+            Value is required.
+          </p>
+        </div>
       </div>
       <div class="label-control-container">
-        <label class="input-label" for="policyId{{ i }}"> Policy ID: </label>
-        <input
-          class="input-control"
-          id="policyId{{ i }}"
-          type="text"
-          formControlName="policyId"
-          required
-        />
+        <div class="column-alignment">
+          <label class="input-label" for="policyId{{ i }}"> Policy ID: </label>
+          <input
+            class="input-control"
+            id="policyId{{ i }}"
+            type="text"
+            formControlName="policyId"
+            required
+          />
+        </div>
+        <div class="column-alignment error-container">
+          <p
+            class="error"
+            *ngIf="
+              plan.get('policyId').hasError('required') &&
+              plan.get('policyId').touched
+            "
+          >
+            Value is required.
+          </p>
+        </div>
       </div>
       <div class="label-control-container">
-        <label class="input-label" for="groupNo{{ i }}"> Group Number: </label>
-        <input
-          class="input-control"
-          id="groupNo{{ i }}"
-          type="text"
-          formControlName="groupNo"
-          required
-        />
+        <div class="column-alignment">
+          <label class="input-label" for="groupNo{{ i }}">
+            Group Number:
+          </label>
+          <input
+            class="input-control"
+            id="groupNo{{ i }}"
+            type="text"
+            formControlName="groupNo"
+            required
+          />
+        </div>
+        <div class="column-alignment error-container">
+          <p
+            class="error"
+            *ngIf="
+              plan.get('groupNo').touched &&
+              plan.get('groupNo').hasError('required')
+            "
+          >
+            Value required.
+          </p>
+        </div>
       </div>
       <div class="label-control-container">
-        <label class="input-label" for="pcn{{ i }}"> PCN: </label>
-        <input
-          class="input-control"
-          id="pcn{{ i }}"
-          type="text"
-          formControlName="pcn"
-          required
-        />
+        <div class="column-alignment">
+          <label class="input-label" for="pcn{{ i }}"> PCN: </label>
+          <input
+            class="input-control"
+            id="pcn{{ i }}"
+            type="text"
+            formControlName="pcn"
+            required
+          />
+        </div>
+        <div class="column-alignment error-container">
+          <p
+            class="error"
+            *ngIf="
+              plan.get('pcn').touched && plan.get('pcn').hasError('required')
+            "
+          ></p>
+        </div>
       </div>
       <div class="label-control-container">
-        <label class="input-label" for="bin{{ i }}"> BIN: </label>
-        <input
-          class="input-control"
-          id="bin{{ i }}"
-          type="text"
-          formControlName="bin"
-          required
-        />
+        <div class="column-alignment">
+          <label class="input-label" for="bin{{ i }}"> BIN: </label>
+          <input
+            class="input-control"
+            id="bin{{ i }}"
+            type="text"
+            formControlName="bin"
+            required
+          />
+        </div>
+        <div class="column-alignment error-container">
+          <p
+            class="error"
+            *ngIf="
+              plan.get('bin').touched && plan.get('bin').hasError('required')
+            "
+          >
+            Value required.
+          </p>
+        </div>
       </div>
     </article>
     <article class="add-button-container">
